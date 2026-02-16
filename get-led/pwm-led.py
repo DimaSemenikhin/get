@@ -1,8 +1,8 @@
 import RPi.GPIO as r
 import time
 r.setmode(r.BCM)
-r.setup(26,r.OUT)
-led=26
+r.setup(12,r.OUT)
+led=12
 
 pwm=r.PWM(led,200)
 duty=0.0

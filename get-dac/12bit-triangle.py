@@ -2,7 +2,7 @@ import signal_generator as sg
 import time
 import mcp4725_driver as mcp
 
-amplitude=3
+amplitude=1
 signal_frequency=40
 sampling_frequency=2000
 

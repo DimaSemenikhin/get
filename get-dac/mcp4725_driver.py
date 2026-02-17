@@ -16,7 +16,7 @@ class MCP4752():
     def set_number(self,number):
         if not isinstance(number,int):
             print("на вход ЦАП можно подавать только целые числа")
-        if not ((0<=number) and (number<=3440)):
+        if not ((0<=number) and (number<=3308)):
             print("число выходит за диапазон MCP4752 (0.0-4.2В)")
             return
         
@@ -32,7 +32,7 @@ class MCP4752():
 
 if __name__=="__main__":
     try:
-        m=MCP4752(5,0x61,True)
+        m=MCP4752(5.2,0x61,True)
         while True:
             try:
                 voltage=float(input("Введите напряжение в Вольтах: " ))

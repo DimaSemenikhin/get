@@ -1,21 +1,20 @@
 import signal_generator as sg
 import time
-import R2R_dac2 as r
+import dac_shim as pwm
 
 amplitude=1
-signal_frequency=10
-sampling_frequency=2000
+signal_frequency=20
+sampling_frequency=500
 
 
 try:
-    r2r=r.R2R_DAC([16,20,21,25,26,17,27,22],3.15,True)
+    p=pwm.PWM_DAC(12,10000,3.15,True)
     while True:
         time=0
         while time<=1/signal_frequency:
             signal=amplitude*sg.get_sin_wave_amplitude(signal_frequency,time)
-            r2r.set_voltage(signal)
+            p.set_voltage(signal)
             sg.wait_for_sampling_period(sampling_frequency)
             time+=1/sampling_frequency
 finally:
-    r2r.deinit()
-            
+    p.deinit()

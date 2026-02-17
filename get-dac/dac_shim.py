@@ -20,8 +20,8 @@ class PWM_DAC():
         
         
         if ((voltage<=self.dynamic_range) and (voltage>=0)):
-            duty=int((voltage/self.dynamic_range)*100)
-            print(duty)
+            duty=((voltage/self.dynamic_range)*100)
+            #print(duty)
             self.pwm.ChangeDutyCycle(duty)
             return
             
